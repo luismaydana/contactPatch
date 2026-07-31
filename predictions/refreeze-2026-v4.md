@@ -7,7 +7,7 @@ Third re-freeze in eight days. σ improved, from 1.460% to 1.414%, which is the 
 
 Both were written and hashed before the corresponding edits, and both texts ship here, so `sha256sum predictions/declarations/*.md` reproduces the two values above. That is a change forced by review. v3's declaration went out as a bare digest with no text behind it, and a hash whose preimage nobody holds says nothing about what was sealed.
 
-What the preimages cannot establish is *when* they were written. That rests on the same anchor as everything else, and until the OpenTimestamps receipt exists, the contents are verifiable and the ordering is not. The amendment is a separate file rather than an edit to the first declaration, because editing a sealed declaration to add something convenient is the move sealing exists to prevent. So the record carries two documents.
+What the preimages cannot establish is *when* they were written. That rests on the same anchor as everything else: the OpenTimestamps receipt over the manifest, attested in Bitcoin blocks 960327 and 960330 on the day this repository went public ([TIMESTAMP.md](TIMESTAMP.md)). The amendment is a separate file rather than an edit to the first declaration, because editing a sealed declaration to add something convenient is the move sealing exists to prevent. So the record carries two documents.
 
 ## The defect
 
@@ -111,7 +111,7 @@ Las Vegas remains an abstention. The ordering problem around that abstention is 
 
 Three re-freezes have been cheap for one reason. Nothing has ever been anchored, so rewriting an unpushed commit costs nothing, and "we found a defect" has been an always-available trigger with no price attached. That criticism is fair and promising to be careful does not answer it.
 
-What ends it is external. `season-2026-manifest.txt` gets stamped with OpenTimestamps and the receipt committed **before the repository is pushed and before Zandvoort on 2026-08-22**. After that stamp exists, changing any sealed call is publicly visible and permanently on the record.
+What ends it is external, and it is done. `season-2026-manifest.txt` was stamped with OpenTimestamps on 2026-07-30, before this repository was pushed and 23 days before Zandvoort; the receipt carries attestations in Bitcoin blocks 960327 and 960330. Now that the stamp exists, changing any sealed call is publicly visible and permanently on the record.
 
 From that point the rule in [SEASON-RUNBOOK.md](SEASON-RUNBOOK.md) applies without exception: no parameter changes, no method changes, no band changes, through Abu Dhabi. A defect found after the anchor is **disclosed and left running** for the rest of the season with its measured cost published. It does not trigger a v5.
 
