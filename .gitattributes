@@ -1,0 +1,18 @@
+* text=auto eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.c   text eol=lf
+*.h   text eol=lf
+*.py  text eol=lf
+*.md  text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.png binary
+*.jpg binary
+*.bin binary
+*.csv text eol=lf

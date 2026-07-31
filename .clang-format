@@ -1,0 +1,27 @@
+BasedOnStyle: LLVM
+Language: Cpp
+Standard: c++20
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Attach
+NamespaceIndentation: None
+PointerAlignment: Left
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:    '^"contactpatch/'
+    Priority: 1
+  - Regex:    '^"'
+    Priority: 2
+  - Regex:    '^<.*\.h>$'
+    Priority: 4
+  - Regex:    '^<.*>$'
+    Priority: 3
+SpaceBeforeParens: ControlStatements

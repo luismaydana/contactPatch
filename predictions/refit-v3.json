@@ -1,0 +1,18 @@
+{
+ "p_dy1": 1.36,
+ "p_dy2": -0.12,
+ "mu_pct": 0.124,
+ "sigma_pct": 1.46,
+ "ratio": 1.0106,
+ "g_gate_pass": true,
+ "oof_errors_pct": {
+  "Miami": -0.579,
+  "Barcelona": 1.148,
+  "Montreal": -1.103,
+  "Spielberg": 1.747,
+  "Silverstone": -0.415,
+  "Spa": 1.881,
+  "Budapest": -1.806
+ },
+ "seconds": 1594.8
+}

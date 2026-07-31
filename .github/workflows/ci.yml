@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: windows-2022   # pinned: windows-latest floats, and float output should not
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1
+      - name: Configure
+        run: cmake --preset msvc-release
+      - name: Build
+        run: cmake --build --preset msvc-release
+      - name: Test
+        run: ctest --preset msvc-release
+
+  # The C++ job above builds a simulator that produces no published number.
+  # This one guards the artifacts a reader is actually invited to check. It was
+  # missing until an audit pointed out that the project's central claim had
+  # never been verified by anything except a person remembering to look.
+  published-hashes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'   # the floor the pinned scientific stack imposes
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+      - name: Every published hash must still reproduce
+        run: python tests/test_reproducibility.py

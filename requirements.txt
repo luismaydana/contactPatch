@@ -1,0 +1,25 @@
+# Python dependencies for the contactPatch scripts
+# (FastF1 telemetry loader, quasi-steady-state predictor, ERS optimiser, plots).
+#   pip install -r requirements.txt
+#
+# Pinned exactly, and the reason is the hash commitments rather than tidiness.
+# The sealed prediction path runs scipy.signal.savgol_filter, numpy gradient and
+# convolve, and scipy.spatial.cKDTree. If any of those changes an edge case or a
+# tie-break in a minor release, the published SHA-256 values stop reproducing,
+# and nobody could tell a library update apart from an author quietly editing a
+# call. Reproducing a sealed prediction means reproducing this environment, so
+# the environment is part of what was committed to.
+#
+# These are the versions the 2026 season locks were produced under, on
+# CPython 3.14.3 / Windows. Newer versions may well give identical bits; that is
+# a claim to test, not to assume.
+fastf1==3.8.2
+pandas==2.3.3
+numpy==2.4.4
+scipy==1.17.1
+matplotlib==3.10.8
+
+# Optional: only needed to export the ghost animation as MP4, and not on the
+# prediction path, so it is deliberately left unpinned.
+# Without it, visualize_ghost.py falls back to writing a GIF.
+imageio-ffmpeg

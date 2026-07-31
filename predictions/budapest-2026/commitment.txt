@@ -1,0 +1,1 @@
+contactPatch | Budapest 2026 quali POLE (dry) | frozen pre-quali | config=greedy mu=-0.39% sigma=1.11% | V_CAP=92.2 | POINT=1:13.613 | 1sig=[1:12.796,1:14.430] | 2sig=[1:11.979,1:15.247] | top~319kmh | wet=VOID
