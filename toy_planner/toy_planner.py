@@ -27,7 +27,7 @@ def dynamic_programming():
     dp.append([])
     for segment in range(1,n+2):
         row=[] 
-        for battery in range(capcity+1):
+        for battery in range(capacity+1):
             row.append(0)
         dp.append(row)
     s = n
@@ -40,7 +40,7 @@ def dynamic_programming():
             dp[s][battery]=skip
             if battery >0:
                 deploy = gain[segment]+dp[segment+1][battery-1]
-                if deply> skip:
+                if deploy> skip:
                     dp[s][battery]=deploy
         segment-=1
     plan=[]
@@ -71,11 +71,11 @@ def brute_force():
 
     achievable =0
     best_time=base_time
-    best_plan[]
+    best_plan = []
     for plan in plans:
-        time= siulate(plan)
+        time= simulate(plan)
         if time is None:
-            contine
+            continue
         achievable +=1
         if best_time>time:
             best_time=time
@@ -87,4 +87,42 @@ def main():
     brute_time, brute_plan, tried, achievable = brute_force()
     dp_time, dp_plan, cells = dynamic_programming()
 
+    print("brute force ",tried, " plans tried:", achievable, "achievable")
+    print("Best lap: ", brute_time/100, "s")
+    print("Deploy  in segments: ", brute_plan)
+
+    print()
     
+    print("Dynamic programming: ",cells, "cells")
+    print("Best lap: ", dp_time/100, "s")
+    print("Deploy  in segments: ", dp_plan)
+
+    print()
+
+    simulated_time = simulate(dp_plan)
+
+    if simulated_time !=dp_time: 
+            print("Error: doesn not match")
+    if brute_time!= dp_time:
+        print("Error: both methods give 2 different laps")
+    if brute_plan== dp_plan:
+        print("Same  answer")
+    else: print("Same best time, both plans are optimal and different")
+
+    #very very simple plan btw
+    simple_plan=[]
+    for p in range(3):
+        best_segment=0
+        for segment in range(1,n+1):
+            if segment in simple_plan:
+                continue
+            if gain[segment]>gain[best_segment]:
+                best_segment = segment
+        simple_plan.append(best_segment)
+    simple_time=simulate(simple_plan)
+    print("3 BIGGEST GAINS:", simple_time/100,"s")
+
+if __name__=="__main__":
+    main()
+
+
