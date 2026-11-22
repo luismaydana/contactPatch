@@ -39,10 +39,10 @@ def dynamic_programming():
             skip =dp[s+1][next_battery]
             dp[s][battery]=skip
             if battery >0:
-                deploy = gain[segment]+dp[segment+1][battery-1]
+                deploy = gain[s]+dp[s+1][battery-1]
                 if deploy> skip:
                     dp[s][battery]=deploy
-        segment-=1
+        s-=1
     plan=[]
     battery =capacity
     for s in range(1,n+1):
@@ -52,7 +52,7 @@ def dynamic_programming():
                 plan.append(s)
                 battery -=1
                 continue
-        if segment in brakes and capacity>battery:
+        if s in brakes and capacity>battery:
             battery +=1
     best_time = base_time -dp[1][capacity]
     cells=(n+1)*(capacity+1)
@@ -103,8 +103,10 @@ def main():
 
     if simulated_time !=dp_time: 
             print("Error: doesn not match")
+            return
     if brute_time!= dp_time:
         print("Error: both methods give 2 different laps")
+        return
     if brute_plan== dp_plan:
         print("Same  answer")
     else: print("Same best time, both plans are optimal and different")
