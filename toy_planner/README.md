@@ -125,10 +125,13 @@ The DP just calculates the best remaining saving for that state once and reuses 
 | Method | Time, worst case  | Memory |
 |---|---:|---:|
 | DP | $O(n(C+1))$ | $O(n(C+1))$ |
-| Brute Force | $O(n^2\,2^n)$ | $O(n\,2^n)$ |
+| Brute Force | $`O(n^2\,2^n)`$ | $`O(n\,2^n)`$ |
 
 
 we can clearly see why DP is better  espcially in longer tracks and more secions of deployment,  we have linear complexity over exponential, so for bigger things, DP is WAY better
 
 ## who wrote this?
-All in this "toy_planner" is written by me "Luis Maydana" absolute no AI involved. 
+All in this "toy_planner" is written by me "Luis Maydana" 
+
+I wrote all the code myself on November 21(2026),  I didn't use AI to write it, edit, debug any part of it.
+I also wrote the whole README. The problem statement and  input  valeus were provided in advance, as well as a separate answer key for the result
